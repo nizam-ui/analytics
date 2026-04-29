@@ -15,4 +15,8 @@ models:
         tests:
           - unique
           - not_null
-          
+
+      - name: gender
+        tests:
+          - accepted_values:
+              values: ['M','F','T']
