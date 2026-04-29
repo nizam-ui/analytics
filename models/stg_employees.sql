@@ -1,10 +1,13 @@
 {{
     config(
         materialized = 'incremental',
-        schema = 'hr'
+        unique_key = ['employee_id']
         )
 }}
 
+with emp as (
+    select * FROM {{ source('hr', 'src_employees') }} as src
+)
 
 SELECT 
 EMPLOYEE_ID,
@@ -19,7 +22,7 @@ COMMISSION_PCT,
 MANAGER_ID,
 DEPARTMENT_ID,
 current_timestamp as LOAD_TIME
- FROM ods.hr.SRC_EMPLOYEES as src
+from emp
 
 {% if is_incremental() %}
 where src.load_time > (
