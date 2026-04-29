@@ -1,7 +1,6 @@
 {{
     config(
-        materialized = 'incremental',
-        unique_key = ['employee_id']
+        materialized = 'table'
         )
 }}
 
@@ -21,12 +20,6 @@ SALARY,
 COMMISSION_PCT,
 MANAGER_ID,
 DEPARTMENT_ID,
+gender,
 current_timestamp as LOAD_TIME
-from emp
-
-{% if is_incremental() %}
-where src.load_time > (
-    select coalesce(max(load_time),'1900-01-01') from stg_employees
-)
-
-{% endif %}
+from emp AS SRC
