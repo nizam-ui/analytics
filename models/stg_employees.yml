@@ -19,4 +19,5 @@ models:
       - name: gender
         tests:
           - accepted_values:
-              values: ['M','F','T']
+              arguments:
+                values: ['M','F','T']

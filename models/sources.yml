@@ -2,8 +2,9 @@ version: 2
 
 sources:
   - name: hr
+    database: ods
     schema: hr
-
+    
     tables:
       - name: src_employees
 
@@ -18,3 +19,6 @@ sources:
             tests:
               - not_null
               - unique
+      
+      - name: audit
+
