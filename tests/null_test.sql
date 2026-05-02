@@ -1,0 +1,1 @@
+{{first_macro('stg_employees', 'employee_id')}}
