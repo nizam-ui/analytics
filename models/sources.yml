@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: hr
+    database: ods
+    schema: hr
+    
+    tables:
+      - name: src_employees
+
+        config:
+          loaded_at_field: load_time
+          freshness:
+            warn_after: {count: 12, period: hour}
+            error_after: {count: 24, period: hour}
+        
+        columns:
+          - name: employee_id
+            tests:
+              - not_null
+              - unique
+      
+      - name: audit
+
