@@ -1,6 +1,4 @@
-{{
-    config(materialized = 'table')
-}}
+{{ config(materialized = 'table') }}
 
 select 
     employee_id,
