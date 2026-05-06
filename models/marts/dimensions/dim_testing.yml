@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: dim_locations
+    description: Location dimension table containing city, state, country, and region details.
+    columns:
+      - name: location_key
+        description: Unique key for location dimension.
+        tests:
+          - not_null
+          - unique
+
+      - name: city_id
+        tests:
+          - not_null
+
+      - name: city
+        tests:
+          - not_null
+
+      - name: load_time
+        tests:
+          - not_null
+
+  - name: dim_customers
+    description: Customer dimension table containing customer details along with location information.
+    columns:
+      - name: customer_key
+        description: Unique key for customer dimension.
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        tests:
+          - not_null
+
+      - name: customer_name
+        tests:
+          - not_null
+
+      - name: customer_status
+        tests:
+          - not_null
+
+      - name: load_time
+        tests:
+          - not_null
+
+  - name: dim_products
+    description: Product dimension table containing product and category details.
+    columns:
+      - name: product_key
+        description: Unique key for product dimension.
+        tests:
+          - not_null
+          - unique
+
+      - name: product_id
+        tests:
+          - not_null
+
+      - name: product_name
+        tests:
+          - not_null
+
+      - name: category_id
+        tests:
+          - not_null
+
+      - name: category_name
+        tests:
+          - not_null
+
+      - name: load_time
+        tests:
+          - not_null

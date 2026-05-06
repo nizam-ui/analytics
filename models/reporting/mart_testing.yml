@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: mart_sales_analytics
+    description: Final sales analytics mart combining order item facts with customer, product, and location dimensions.
+    columns:
+      - name: order_item_key
+        description: Unique key for each order item transaction.
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        tests:
+          - not_null
+
+      - name: customer_key
+        tests:
+          - not_null
+
+      - name: product_key
+        tests:
+          - not_null
+
+      - name: location_key
+        tests:
+          - not_null
+
+      - name: order_date
+        tests:
+          - not_null
+
+      - name: total_amount
+        tests:
+          - not_null
+
+      - name: fact_deleted_flag
+        tests:
+          - not_null
