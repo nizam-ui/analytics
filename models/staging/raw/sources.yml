@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: raw
+    database: ECOMMERCE_DWH
+    schema: RAW
+
+    tables:
+      - name: customers
+        description: Customer master data
+
+      - name: locations
+        description: Location details
+
+      - name: categories
+        description: Product categories
+
+      - name: products
+        description: Product master data
+
+      - name: orders
+        description: Order header data
+
+      - name: order_items
+        description: Order line items
+
+      - name: payments
+        description: Payment transactions
+
+      - name: addresses
+        description: Customer addresses
+
+      - name: inventory
+        description: Product stock details
