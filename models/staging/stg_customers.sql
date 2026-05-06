@@ -1,12 +1,3 @@
-{{
-    config(
-        materialized = 'view',
-        database = 'DEV',
-        schema = 'STAGE'
-    )
-}}
-
-
 select
     customer_id,
     customer_name,

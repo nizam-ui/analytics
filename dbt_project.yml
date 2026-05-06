@@ -39,5 +39,6 @@ models:
   my_new_project:
     staging:
       +materialized: view
-      +database: DEV
+      +database: "{{ env_var('DBT_DATABASE_TARGET') }}"
       +schema: STAGE
+

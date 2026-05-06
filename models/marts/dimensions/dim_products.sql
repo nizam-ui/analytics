@@ -1,6 +1,6 @@
 {{ config(
     materialized='incremental',
-    database='DEV',
+    database=env_var('DBT_DATABASE_TARGET'),
     schema='DIM',
     unique_key='product_key',
     incremental_strategy='merge',

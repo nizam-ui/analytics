@@ -8,7 +8,7 @@
         post_hook = "
         update {{this}} as dim
         set 
-            delete_flag = 'Y',
+            deleted_flag = 'Y',
             current_audit_datetime = current_timestamp()
         where not exists(
             select 1 
@@ -28,7 +28,7 @@ select
     REGION,
     LOAD_TIME as source_audit_datetime,
     current_timestamp() as current_audit_datetime,
-    'N' as delete_flag
+    'N' as deleted_flag
 from {{ ref('stg_locations') }}
 
 {% if is_incremental() %}
